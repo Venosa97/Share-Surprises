@@ -22,8 +22,7 @@ public class Main {
 //		min3.enjoy();
 //		min8.enjoy();
 //		min7.enjoy();
-		ArrayList<String> minions =  new ArrayList<String>(Arrays.asList("Dave", "Carl", "Kevin", "Stuart", "Jerry", "Tim"));
-		System.out.println(minions.size());
+
 	}
 
 }
