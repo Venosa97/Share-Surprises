@@ -15,7 +15,7 @@ public final class GatherSurprise {
 	static Random randomNum = new Random();
 	
 	
-	public ISurprise[] gather (int n) {
+	public static ISurprise[] gather (int n) {
 		
 		if (singleton == true) {
 			return tolba;
@@ -41,7 +41,7 @@ public final class GatherSurprise {
 		return tolba;
 	}
 	
-	public ISurprise gather (){
+	public static ISurprise gather (){
 		int RanNum = randomNum.nextInt(3);
 		if (RanNum == 0) {
 			return FortuneCookie.generateFortuneCookie();

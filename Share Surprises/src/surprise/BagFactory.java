@@ -4,7 +4,8 @@ public class BagFactory implements IBagFactory{
 	
 
 	static IBag lastTypeOfBag;
-	IBag typeOfBag;
+	private IBag typeOfBag;
+	private static BagFactory originalBag;
 	
 	private BagFactory() {
 		
@@ -30,6 +31,17 @@ public class BagFactory implements IBagFactory{
 			}
 		
 		return null;
+	}
+	
+	public static BagFactory getInstance() {
+		if (lastTypeOfBag == null) {
+			originalBag = new BagFactory();
+		}
+		return originalBag;
+	}
+	
+	public IBag getTypeOfBag() {
+		return typeOfBag;
 	}
 
 }

@@ -1,28 +1,84 @@
 package surprise;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Main {
 
 	public static void main(String[] args) {
+		System.out.println("\n\t ===== testGiveSurprisesAndApplauseFIFO ===== \t\n");
+		testGiveSurprisesAndApplauseFIFO();
 		
+		System.out.println("\n\t ===== testGiveSurprisesAndApplauseLIFO ===== \t\n");
+		testGiveSurprisesAndApplauseLIFO();
 		
-		
-//		MinionToy min1 = MinionToy.generateMinionToy();
-//		MinionToy min2 = MinionToy.generateMinionToy();
-//		MinionToy min3 = MinionToy.generateMinionToy();
-//		MinionToy min4 = MinionToy.generateMinionToy();
-//		MinionToy min5 = MinionToy.generateMinionToy();
-//		MinionToy min6 = MinionToy.generateMinionToy();
-//		MinionToy min7 = MinionToy.generateMinionToy();
-//		MinionToy min8 = MinionToy.generateMinionToy();
-//		min1.enjoy();
-//		min2.enjoy();
-//		min3.enjoy();
-//		min8.enjoy();
-//		min7.enjoy();
+		System.out.println("\n\t ===== testGiveSurprisesAndApplauseRANDOM ===== \t\n");
+		testGiveSurprisesAndApplauseRANDOM();
 
+	}
+	
+	public static void testGiveSurprisesAndApplauseFIFO() {
+		ISurprise s1 = GatherSurprise.gather();
+		ISurprise s2 = GatherSurprise.gather();
+		ISurprise s3 = GatherSurprise.gather();
+		ISurprise s4 = GatherSurprise.gather();
+		
+		System.out.println(s1);
+		System.out.println(s2);
+		System.out.println(s3);
+		System.out.println(s4);
+		
+		GiveSurpriseAndApplause g = new GiveSurpriseAndApplause("FIFO", 1);
+		
+		g.put(s1);
+		g.put(s2);
+		g.put(s3);
+		g.put(s4);
+		
+		System.out.println("\n ==== Giving === \n");
+		
+		g.giveAll();
+	}
+	
+	public static void testGiveSurprisesAndApplauseLIFO() {
+		ISurprise s1 = GatherSurprise.gather();
+		ISurprise s2 = GatherSurprise.gather();
+		ISurprise s3 = GatherSurprise.gather();
+		ISurprise s4 = GatherSurprise.gather();
+		
+		System.out.println(s1);
+		System.out.println(s2);
+		System.out.println(s3);
+		System.out.println(s4);
+		
+		GiveSurpriseAndApplause g = new GiveSurpriseAndApplause("LIFO", 1);
+		g.put(s1);
+		g.put(s2);
+		g.put(s3);
+		g.put(s4);
+		
+		System.out.println("\n ==== Giving === \n");
+		
+		g.giveAll();
+	}
+	
+	public static void testGiveSurprisesAndApplauseRANDOM() {
+		ISurprise s1 = GatherSurprise.gather();
+		ISurprise s2 = GatherSurprise.gather();
+		ISurprise s3 = GatherSurprise.gather();
+		ISurprise s4 = GatherSurprise.gather();
+		
+		System.out.println(s1);
+		System.out.println(s2);
+		System.out.println(s3);
+		System.out.println(s4);
+		
+		GiveSurpriseAndApplause g = new GiveSurpriseAndApplause("RANDOM", 1);
+		g.put(s1);
+		g.put(s2);
+		g.put(s3);
+		g.put(s4);
+
+		System.out.println("\n ==== Giving === \n");
+		
+		g.giveAll();
 	}
 
 }

@@ -12,18 +12,21 @@ public abstract class AbstractGiveSurprises {
 		this.waitTime = waitTime;
 	}
 
-
-
+	public void put(ISurprise newSurprise) {
+		this.bag.put(newSurprise);
+	}
+	
+	public void put(IBag surprises) {
+		this.bag.put(surprises);
+	}
+	
 	public void give() {
 		if (this.bag.isEmpty()) {
-			System.out.println("The bag is empty");
-			return;
+			System.out.println("The bag is empty!");
 		}
-		
 		this.bag.takeOut().enjoy();
-		this.giveWithPassion();
 	}
-
+	
 	public void giveAll() {
 		if (bag.isEmpty()) {
 			System.out.println("The bag is empty");
@@ -40,22 +43,13 @@ public abstract class AbstractGiveSurprises {
 			}
 			limit--;
 		}
-
 	}
-
+	
 	public boolean isEmpty() {
-		return bag.isEmpty();
+		return this.bag.isEmpty();
 	}
-
-	public void put(ISurprise newSurprise) {
-		bag.put(newSurprise);
-	}
-
-	public void put(IBag surprises) {
-		bag.put(surprises);
-	}
-
-	protected abstract void giveWithPassion();
+	
+	abstract void giveWithPassion();
 }
 	
 

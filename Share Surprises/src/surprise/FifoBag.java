@@ -28,7 +28,7 @@ public class FifoBag implements IBag {
 	public ISurprise takeOut() {
 		++counter;
 		if (counter >= this.bagOfISurprises.size()) {
-			counter = -1;
+			counter = 0;
 		}
 		return this.bagOfISurprises.remove(counter);
 	}
